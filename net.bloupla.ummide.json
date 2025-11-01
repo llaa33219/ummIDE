@@ -9,7 +9,7 @@
     "--socket=fallback-x11",
     "--device=dri",
     "--share=ipc",
-    "--filesystem=xdg-documents",
+    "--filesystem=home",
     "--talk-name=org.freedesktop.portal.FileChooser"
   ],
   "modules": [
