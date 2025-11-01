@@ -5,7 +5,7 @@
 ### Building
 
 ```bash
-# Install dependencies
+# Install development dependencies (only needed for building, not for end users)
 flatpak install flathub org.gnome.Platform//48 org.gnome.Sdk//48
 
 # Build and install

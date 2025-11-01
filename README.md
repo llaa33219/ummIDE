@@ -16,13 +16,16 @@ A GTK4-based IDE for the [umjunsik-lang](https://github.com/rycont/umjunsik-lang
 
 - Flatpak
 - flatpak-builder
-- GNOME 46 runtime and SDK
 
-### Install runtime
+### Install development dependencies
+
+Only needed for local development and building:
 
 ```bash
 flatpak install flathub org.gnome.Platform//48 org.gnome.Sdk//48
 ```
+
+Note: End users installing from Flathub will get the runtime automatically.
 
 ### Build the Flatpak
 
