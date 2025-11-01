@@ -18,7 +18,7 @@
       "buildsystem": "simple",
       "build-commands": [
         "mkdir -p /app/share/fonts",
-        "find . -name '*.otf' -exec cp {} /app/share/fonts/ \;"
+        "find . -name '*.otf' -exec cp {} /app/share/fonts/ \\;"
       ],
       "sources": [
         {
