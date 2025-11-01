@@ -25,11 +25,14 @@ on_open_finish(GObject *source, GAsyncResult *result, gpointer data)
     g_autofree char *contents = NULL;
     gsize length;
     
-    if (g_file_load_contents(file, NULL, &contents, &length, NULL, &error)) {
+    g_autoptr(GError) load_error = NULL;
+    if (g_file_load_contents(file, NULL, &contents, &length, NULL, &load_error)) {
       gtk_text_buffer_set_text(GTK_TEXT_BUFFER(editor->buffer), contents, length);
       if (editor->current_file)
         g_object_unref(editor->current_file);
       editor->current_file = g_object_ref(file);
+    } else {
+      g_warning("Failed to open file: %s", load_error->message);
     }
   }
 }
@@ -45,9 +48,16 @@ on_save_finish(GObject *source, GAsyncResult *result, gpointer data)
     GtkTextIter start, end;
     gtk_text_buffer_get_bounds(GTK_TEXT_BUFFER(editor->buffer), &start, &end);
     g_autofree char *text = gtk_text_buffer_get_text(GTK_TEXT_BUFFER(editor->buffer), &start, &end, FALSE);
-    g_file_replace_contents(file, text, strlen(text), NULL, FALSE,
-                           G_FILE_CREATE_NONE, NULL, NULL, NULL);
-    editor->current_file = g_object_ref(file);
+    
+    g_autoptr(GError) error = NULL;
+    if (g_file_replace_contents(file, text, strlen(text), NULL, FALSE,
+                               G_FILE_CREATE_NONE, NULL, NULL, &error)) {
+      if (editor->current_file)
+        g_object_unref(editor->current_file);
+      editor->current_file = g_object_ref(file);
+    } else {
+      g_warning("Failed to save file: %s", error->message);
+    }
   }
 }
 
@@ -138,11 +148,20 @@ ummide_editor_save_file(UmmideEditor *self, GtkWindow *parent)
     GtkTextIter start, end;
     gtk_text_buffer_get_bounds(GTK_TEXT_BUFFER(self->buffer), &start, &end);
     g_autofree char *text = gtk_text_buffer_get_text(GTK_TEXT_BUFFER(self->buffer), &start, &end, FALSE);
-    g_file_replace_contents(self->current_file, text, strlen(text), NULL, FALSE,
-                           G_FILE_CREATE_NONE, NULL, NULL, NULL);
+    
+    g_autoptr(GError) error = NULL;
+    if (!g_file_replace_contents(self->current_file, text, strlen(text), NULL, FALSE,
+                                 G_FILE_CREATE_NONE, NULL, NULL, &error)) {
+      g_warning("Failed to save file: %s", error->message);
+    }
   } else {
     // Show save dialog
     GtkFileDialog *dialog = gtk_file_dialog_new();
+    GtkFileFilter *filter = gtk_file_filter_new();
+    
+    gtk_file_filter_set_name(filter, "엄랭 파일 (.umm)");
+    gtk_file_filter_add_pattern(filter, "*.umm");
+    gtk_file_dialog_set_default_filter(dialog, filter);
     gtk_file_dialog_set_initial_name(dialog, "untitled.umm");
     
     gtk_file_dialog_save(dialog, parent, NULL, on_save_finish, self);
