@@ -10,10 +10,7 @@
     "--device=dri",
     "--share=ipc",
     "--filesystem=xdg-documents",
-    "--talk-name=org.freedesktop.portal.FileChooser",
-    "--filesystem=host-fonts:ro",
-    "--filesystem=xdg-config/fontconfig:ro",
-    "--env=GTK_THEME=Adwaita:dark"
+    "--talk-name=org.freedesktop.portal.FileChooser"
   ],
   "add-extensions": {
     "org.freedesktop.Platform.Locale": {
