@@ -30,12 +30,12 @@ ummide_runner_execute(const char *code, GtkTextView *output_view)
   }
   close(fd);
   
-  // Build command
-  const char *deno_path = "/app/bin/deno";
-  const char *runtime_path = "/app/share/umjunsik-lang/umjunsik-lang-deno/index.ts";
+  // Build command using Python runtime
+  const char *python_path = "/usr/bin/python3";
+  const char *runtime_script = "/app/share/umjunsik-lang/umjunsik-lang-python/__main__.py";
   
-  g_autofree char *command = g_strdup_printf("%s run --allow-read --allow-env %s %s",
-                                             deno_path, runtime_path, temp_file);
+  g_autofree char *command = g_strdup_printf("%s %s %s",
+                                             python_path, runtime_script, temp_file);
   
   // Execute command
   g_autofree char *stdout_output = NULL;

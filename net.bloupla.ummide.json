@@ -10,7 +10,9 @@
     "--device=dri",
     "--share=ipc",
     "--filesystem=xdg-documents",
-    "--talk-name=org.freedesktop.portal.FileChooser"
+    "--filesystem=xdg-run/gvfsd:ro",
+    "--talk-name=org.freedesktop.portal.FileChooser",
+    "--talk-name=org.gtk.vfs.*"
   ],
   "add-extensions": {
     "org.freedesktop.Platform.Locale": {
