@@ -10,22 +10,24 @@
     "--device=dri",
     "--share=ipc",
     "--filesystem=xdg-documents",
-    "--filesystem=xdg-run/gvfsd:ro",
-    "--filesystem=xdg-config/fontconfig:ro",
-    "--filesystem=xdg-config/gtk-3.0:ro",
-    "--filesystem=xdg-config/gtk-4.0:ro",
-    "--filesystem=~/.cache/fontconfig:ro",
-    "--talk-name=org.freedesktop.portal.FileChooser",
-    "--talk-name=org.gtk.vfs.*",
-    "--talk-name=org.gnome.SettingsDaemon.XSettings",
-    "--env=LANG=ko_KR.UTF-8"
+    "--talk-name=org.freedesktop.portal.FileChooser"
   ],
-  "add-extensions": {
-    "org.freedesktop.Platform.Locale": {
-      "directory": "share/runtime/locale"
-    }
-  },
   "modules": [
+    {
+      "name": "noto-cjk-fonts",
+      "buildsystem": "simple",
+      "build-commands": [
+        "mkdir -p /app/share/fonts",
+        "install -Dm644 *.otf /app/share/fonts/"
+      ],
+      "sources": [
+        {
+          "type": "archive",
+          "url": "https://github.com/notofonts/noto-cjk/releases/download/Sans2.004/01_NotoSansCJK-OTF-VF.zip",
+          "sha256": "d1e85c3e28b0b49ad04c0c8c1c1f1b73e42e4b8f0e4f3c6e86f6b7f9e13c7fe0"
+        }
+      ]
+    },
     {
       "name": "deno",
       "buildsystem": "simple",
