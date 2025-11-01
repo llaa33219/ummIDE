@@ -1,9 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <component type="desktop-application">
   <id>net.bloupla.ummide</id>
-  <name>엄랭 IDE</name>
-  <summary>엄랭을 위한 통합 개발 환경</summary>
-  <summary xml:lang="en">IDE for the umjunsik-lang esoteric programming language</summary>
+  <name>umjunsik-lang IDE</name>
+  <summary>IDE for the umjunsik-lang esoteric programming language</summary>
   
   <metadata_license>CC0-1.0</metadata_license>
   <project_license>Apache-2.0</project_license>
@@ -14,9 +13,6 @@
   
   <description>
     <p>
-      엄준식 프로그래밍 언어로 코드를 작성하고 실행하기 위한 통합 개발 환경 입니다.
-    </p>
-    <p xml:lang="en">
       An integrated development environment for writing and running code in the Umjunsik programming language.
     </p>
   </description>
