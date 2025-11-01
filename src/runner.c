@@ -30,12 +30,14 @@ ummide_runner_execute(const char *code, GtkTextView *output_view)
   }
   close(fd);
   
-  // Build command using Python runtime
+  // Build command using Python runtime with inline code to avoid import issues
   const char *python_path = "/usr/bin/python3";
-  const char *runtime_script = "/app/share/umjunsik-lang/umjunsik-lang-python/runtime.py";
+  const char *runtime_dir = "/app/share/umjunsik-lang/umjunsik-lang-python";
   
-  g_autofree char *command = g_strdup_printf("%s %s %s",
-                                             python_path, runtime_script, temp_file);
+  g_autofree char *command = g_strdup_printf(
+    "%s -c \"import sys; sys.path.insert(0, '%s'); from runtime import Umjunsik; "
+    "umj = Umjunsik(); umj.compilePath('%s')\" 2>&1",
+    python_path, runtime_dir, temp_file);
   
   // Execute command
   g_autofree char *stdout_output = NULL;
