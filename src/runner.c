@@ -1,4 +1,5 @@
 #include "runner.h"
+#include <glib/gstdio.h>
 #include <gio/gio.h>
 #include <unistd.h>
 #include <string.h>
@@ -19,7 +20,14 @@ ummide_runner_execute(const char *code, GtkTextView *output_view)
   }
   
   // Write code to temp file
-  write(fd, code, strlen(code));
+  ssize_t written = write(fd, code, strlen(code));
+  if (written < 0) {
+    GtkTextBuffer *buffer = gtk_text_view_get_buffer(output_view);
+    gtk_text_buffer_set_text(buffer, "Error writing to temp file\n", -1);
+    close(fd);
+    g_unlink(temp_file);
+    return;
+  }
   close(fd);
   
   // Build command

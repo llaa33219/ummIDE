@@ -62,7 +62,7 @@ ummide_editor_init(UmmideEditor *self)
   gtk_source_view_set_highlight_current_line(self->source_view, TRUE);
   gtk_source_view_set_tab_width(self->source_view, 2);
   gtk_source_view_set_auto_indent(self->source_view, TRUE);
-  gtk_source_view_set_monospace(self->source_view, TRUE);
+  gtk_text_view_set_monospace(GTK_TEXT_VIEW(self->source_view), TRUE);
   
   // Set default text
   const char *default_text = 
