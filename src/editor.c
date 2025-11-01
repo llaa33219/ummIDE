@@ -83,10 +83,38 @@ ummide_editor_init(UmmideEditor *self)
   gtk_source_view_set_auto_indent(self->source_view, TRUE);
   gtk_text_view_set_monospace(GTK_TEXT_VIEW(self->source_view), TRUE);
   
-  // Set default text
+  // Set default text - gugudan example
   const char *default_text = 
     "어떻게\n"
-    "엄.엄.엄.준.식.\n"
+    "\n"
+    "엄..\n"
+    "어엄.\n"
+    "어어엄........\n"
+    "어어어엄...........\n"
+    "\n"
+    "식어!\n"
+    "식........ ....ㅋ\n"
+    "식........... ........ㅋ\n"
+    "식........ ....ㅋ\n"
+    "식어어!\n"
+    "식........ ....ㅋ\n"
+    "식.............................................................ㅋ\n"
+    "식........ ....ㅋ\n"
+    "식어 어어!\n"
+    "식ㅋ\n"
+    "어어어엄어어어어,\n"
+    "어엄어어.\n"
+    "동탄어어어어?준.......................\n"
+    "준........\n"
+    "\n"
+    "엄어.\n"
+    "어어엄어어어,\n"
+    "어어어엄...........\n"
+    "어엄.\n"
+    "동탄어어어?화이팅!.\n"
+    "식ㅋ\n"
+    "준........\n"
+    "\n"
     "이 사람이름이냐ㅋㅋ\n";
   gtk_text_buffer_set_text(GTK_TEXT_BUFFER(self->buffer), default_text, -1);
   
