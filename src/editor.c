@@ -4,14 +4,15 @@
 
 struct _UmmideEditor
 {
-  GtkScrolledWindow parent_instance;
+  GtkBox parent_instance;
   
+  GtkScrolledWindow *scrolled_window;
   GtkSourceView *source_view;
   GtkSourceBuffer *buffer;
   GFile *current_file;
 };
 
-G_DEFINE_FINAL_TYPE(UmmideEditor, ummide_editor, GTK_TYPE_SCROLLED_WINDOW)
+G_DEFINE_FINAL_TYPE(UmmideEditor, ummide_editor, GTK_TYPE_BOX)
 
 static void
 on_open_finish(GObject *source, GAsyncResult *result, gpointer data)
@@ -71,8 +72,15 @@ ummide_editor_init(UmmideEditor *self)
     "이 사람이름이냐ㅋㅋ\n";
   gtk_text_buffer_set_text(GTK_TEXT_BUFFER(self->buffer), default_text, -1);
   
-  gtk_scrolled_window_set_child(GTK_SCROLLED_WINDOW(self), GTK_WIDGET(self->source_view));
-  gtk_scrolled_window_set_has_frame(GTK_SCROLLED_WINDOW(self), TRUE);
+  // Create scrolled window and add source view
+  self->scrolled_window = GTK_SCROLLED_WINDOW(gtk_scrolled_window_new());
+  gtk_scrolled_window_set_child(self->scrolled_window, GTK_WIDGET(self->source_view));
+  gtk_scrolled_window_set_has_frame(self->scrolled_window, TRUE);
+  
+  // Add scrolled window to box
+  gtk_box_append(GTK_BOX(self), GTK_WIDGET(self->scrolled_window));
+  gtk_widget_set_vexpand(GTK_WIDGET(self->scrolled_window), TRUE);
+  gtk_widget_set_hexpand(GTK_WIDGET(self->scrolled_window), TRUE);
   
   self->current_file = NULL;
 }

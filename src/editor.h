@@ -6,7 +6,7 @@
 G_BEGIN_DECLS
 
 #define UMMIDE_TYPE_EDITOR (ummide_editor_get_type())
-G_DECLARE_FINAL_TYPE(UmmideEditor, ummide_editor, UMMIDE, EDITOR, GtkScrolledWindow)
+G_DECLARE_FINAL_TYPE(UmmideEditor, ummide_editor, UMMIDE, EDITOR, GtkBox)
 
 GtkWidget *ummide_editor_new(void);
 void ummide_editor_open_file(UmmideEditor *self, GtkWindow *parent);
