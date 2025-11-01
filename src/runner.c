@@ -32,7 +32,7 @@ ummide_runner_execute(const char *code, GtkTextView *output_view)
   
   // Build command using Python runtime
   const char *python_path = "/usr/bin/python3";
-  const char *runtime_script = "/app/share/umjunsik-lang/umjunsik-lang-python/__main__.py";
+  const char *runtime_script = "/app/share/umjunsik-lang/umjunsik-lang-python/runtime.py";
   
   g_autofree char *command = g_strdup_printf("%s %s %s",
                                              python_path, runtime_script, temp_file);
