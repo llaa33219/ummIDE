@@ -45,7 +45,8 @@
         {
           "type": "git",
           "url": "https://github.com/rycont/umjunsik-lang.git",
-          "commit": "e973f9d22b9803ee86b53d8e60f1b65ab08c7547"
+          "commit": "e973f9d22b9803ee86b53d8e60f1b65ab08c7547",
+          "disable-shallow-clone": true
         }
       ]
     },
@@ -54,8 +55,9 @@
       "buildsystem": "meson",
       "sources": [
         {
-          "type": "dir",
-          "path": "."
+          "type": "git",
+          "url": "https://github.com/llaa33219/ummIDE.git",
+          "branch": "main"
         }
       ]
     }
