@@ -54,8 +54,16 @@ on_save_finish(GObject *source, GAsyncResult *result, gpointer data)
 static void
 ummide_editor_init(UmmideEditor *self)
 {
-  // Create source buffer and view
+  // Load umjunsik language definition
+  GtkSourceLanguageManager *lang_manager = gtk_source_language_manager_get_default();
+  GtkSourceLanguage *lang = gtk_source_language_manager_get_language(lang_manager, "umjunsik");
+  
+  // Create source buffer and view with syntax highlighting
   self->buffer = gtk_source_buffer_new(NULL);
+  if (lang) {
+    gtk_source_buffer_set_language(self->buffer, lang);
+    gtk_source_buffer_set_highlight_syntax(self->buffer, TRUE);
+  }
   self->source_view = GTK_SOURCE_VIEW(gtk_source_view_new_with_buffer(self->buffer));
   
   // Configure source view

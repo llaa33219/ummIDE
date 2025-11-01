@@ -50,3 +50,9 @@ install_data(
   'data/net.bloupla.ummide.metainfo.xml',
   install_dir: get_option('datadir') / 'metainfo'
 )
+
+# GtkSourceView language definition
+install_data(
+  'data/umjunsik.lang',
+  install_dir: get_option('datadir') / 'gtksourceview-5/language-specs'
+)

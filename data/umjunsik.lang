@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<language id="umjunsik" name="Umjunsik" version="2.0" _section="Script">
+  <metadata>
+    <property name="mimetypes">text/x-umjunsik</property>
+    <property name="globs">*.umm</property>
+    <property name="line-comment-start">//</property>
+  </metadata>
+
+  <styles>
+    <style id="keyword" name="Keyword" map-to="def:keyword"/>
+    <style id="operator" name="Operator" map-to="def:operator"/>
+    <style id="number" name="Number" map-to="def:number"/>
+    <style id="variable" name="Variable" map-to="def:identifier"/>
+    <style id="io" name="Input/Output" map-to="def:builtin"/>
+    <style id="control" name="Control Flow" map-to="def:statement"/>
+  </styles>
+
+  <definitions>
+    <context id="umjunsik" class="no-spell-check">
+      <include>
+        <!-- Start/End markers -->
+        <context id="start-end" style-ref="keyword">
+          <keyword>어떻게</keyword>
+          <keyword>이 사람이름이냐ㅋㅋ</keyword>
+        </context>
+
+        <!-- Exit statement -->
+        <context id="exit" style-ref="keyword">
+          <keyword>화이팅!</keyword>
+        </context>
+
+        <!-- Variable assignment -->
+        <context id="assignment" style-ref="variable">
+          <match>어*엄</match>
+        </context>
+
+        <!-- Jump statement -->
+        <context id="jump" style-ref="control">
+          <match>준</match>
+        </context>
+
+        <!-- Conditional -->
+        <context id="conditional" style-ref="control">
+          <match>동탄</match>
+        </context>
+
+        <!-- I/O operations -->
+        <context id="io-operations" style-ref="io">
+          <match>식[?!ㅋ]</match>
+        </context>
+
+        <!-- Numbers (dots and commas) -->
+        <context id="numbers" style-ref="number">
+          <match>[.,]+</match>
+        </context>
+
+        <!-- Variable reference -->
+        <context id="variable-ref" style-ref="variable">
+          <match>어+</match>
+        </context>
+
+        <!-- Operators -->
+        <context id="question" style-ref="operator">
+          <keyword>?</keyword>
+        </context>
+      </include>
+    </context>
+  </definitions>
+</language>
