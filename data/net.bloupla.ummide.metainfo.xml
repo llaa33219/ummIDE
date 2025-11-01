@@ -2,24 +2,22 @@
 <component type="desktop-application">
   <id>net.bloupla.ummide</id>
   <name>엄랭 IDE</name>
-  <summary>IDE for the umjunsik-lang esoteric programming language</summary>
-  <summary xml:lang="ko">엄준식 언어를 위한 통합 개발 환경</summary>
+  <summary>엄랭을 위한 통합 개발 환경</summary>
+  <summary xml:lang="en">IDE for the umjunsik-lang esoteric programming language</summary>
   
   <metadata_license>CC0-1.0</metadata_license>
   <project_license>Apache-2.0</project_license>
   
   <developer id="net.bloupla">
-    <name>Bloupla</name>
+    <name>BLOUplanet</name>
   </developer>
   
   <description>
     <p>
-      A simple IDE for writing and running umjunsik-lang programs. Umjunsik-lang is an esoteric
-      programming language with Korean-inspired syntax.
+      엄준식 프로그래밍 언어로 코드를 작성하고 실행하기 위한 통합 개발 환경 입니다.
     </p>
-    <p xml:lang="ko">
-      엄준식 언어로 프로그램을 작성하고 실행하기 위한 간단한 IDE입니다. 엄준식 언어는
-      한국어에서 영감을 받은 난해한 프로그래밍 언어입니다.
+    <p xml:lang="en">
+      An integrated development environment for writing and running code in the Umjunsik programming language.
     </p>
   </description>
   
