@@ -11,10 +11,8 @@
     "--share=ipc",
     "--filesystem=xdg-documents",
     "--talk-name=org.freedesktop.portal.FileChooser",
+    "--filesystem=host-fonts:ro",
     "--filesystem=xdg-config/fontconfig:ro",
-    "--filesystem=xdg-data/fonts:ro",
-    "--filesystem=/usr/share/fonts:ro",
-    "--filesystem=/usr/local/share/fonts:ro",
     "--env=GTK_THEME=Adwaita:dark"
   ],
   "add-extensions": {

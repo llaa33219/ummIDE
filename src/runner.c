@@ -32,9 +32,9 @@ ummide_runner_execute(const char *code, GtkTextView *output_view)
   
   // Build command
   const char *deno_path = "/app/bin/deno";
-  const char *runtime_path = "/app/share/umjunsik-lang/main.ts";
+  const char *runtime_path = "/app/share/umjunsik-lang/umjunsik-lang-deno/index.ts";
   
-  g_autofree char *command = g_strdup_printf("%s run --allow-read %s %s",
+  g_autofree char *command = g_strdup_printf("%s run --allow-read --allow-env %s %s",
                                              deno_path, runtime_path, temp_file);
   
   // Execute command
