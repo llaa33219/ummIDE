@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<gresources>
+  <gresource prefix="/net/bloupla/ummide">
+    <file>net.bloupla.ummide.svg</file>
+  </gresource>
+</gresources>
