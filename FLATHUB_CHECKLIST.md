@@ -40,7 +40,7 @@ flatpak run net.bloupla.ummide
 
 ### GitHub Repository Setup
 
-1. [ ] Create repository at https://github.com/bloupla/umjunsik-lang-ide
+1. [x] Repository at https://github.com/llaa33219/ummIDE
 2. [ ] Push all code including screenshots
 3. [ ] Verify screenshot URLs are accessible
 
@@ -58,7 +58,7 @@ flatpak run net.bloupla.ummide
 
 - ✅ Removed excessive filesystem permissions
 - ✅ Added developer information
-- ✅ Included proper license (GPL-3.0-or-later)
+- ✅ Included proper license (Apache-2.0)
 - ✅ Added release notes
 - ✅ Specified supported architectures
 - ⚠️ Screenshot URLs must be accessible from GitHub

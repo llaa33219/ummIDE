@@ -6,7 +6,7 @@
   <summary xml:lang="ko">엄준식 언어를 위한 통합 개발 환경</summary>
   
   <metadata_license>CC0-1.0</metadata_license>
-  <project_license>GPL-3.0-or-later</project_license>
+  <project_license>Apache-2.0</project_license>
   
   <developer id="net.bloupla">
     <name>Bloupla</name>
@@ -25,13 +25,13 @@
   
   <launchable type="desktop-id">net.bloupla.ummide.desktop</launchable>
   
-  <url type="homepage">https://github.com/rycont/umjunsik-lang</url>
-  <url type="bugtracker">https://github.com/rycont/umjunsik-lang/issues</url>
+  <url type="homepage">https://github.com/llaa33219/ummIDE</url>
+  <url type="bugtracker">https://github.com/llaa33219/ummIDE/issues</url>
   
   <screenshots>
     <screenshot type="default">
       <caption>Main IDE window with code editor and output panel</caption>
-      <image>https://raw.githubusercontent.com/bloupla/umjunsik-lang-ide/main/screenshots/main-window.png</image>
+      <image>https://raw.githubusercontent.com/llaa33219/ummIDE/main/screenshots/main-window.png</image>
     </screenshot>
   </screenshots>
   
