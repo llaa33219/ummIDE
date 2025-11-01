@@ -11,8 +11,14 @@
     "--share=ipc",
     "--filesystem=xdg-documents",
     "--filesystem=xdg-run/gvfsd:ro",
+    "--filesystem=xdg-config/gtk-3.0:ro",
+    "--filesystem=xdg-config/gtk-4.0:ro",
+    "--filesystem=/usr/share/fonts:ro",
+    "--filesystem=xdg-data/fonts:ro",
+    "--filesystem=~/.local/share/fonts:ro",
     "--talk-name=org.freedesktop.portal.FileChooser",
-    "--talk-name=org.gtk.vfs.*"
+    "--talk-name=org.gtk.vfs.*",
+    "--talk-name=org.gnome.SettingsDaemon.XSettings"
   ],
   "add-extensions": {
     "org.freedesktop.Platform.Locale": {
