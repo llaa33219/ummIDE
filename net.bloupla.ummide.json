@@ -10,8 +10,18 @@
     "--device=dri",
     "--share=ipc",
     "--filesystem=xdg-documents",
-    "--talk-name=org.freedesktop.portal.FileChooser"
+    "--talk-name=org.freedesktop.portal.FileChooser",
+    "--filesystem=xdg-config/fontconfig:ro",
+    "--filesystem=xdg-data/fonts:ro",
+    "--filesystem=/usr/share/fonts:ro",
+    "--filesystem=/usr/local/share/fonts:ro",
+    "--env=GTK_THEME=Adwaita:dark"
   ],
+  "add-extensions": {
+    "org.freedesktop.Platform.Locale": {
+      "directory": "share/runtime/locale"
+    }
+  },
   "modules": [
     {
       "name": "deno",
